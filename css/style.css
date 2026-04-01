@@ -357,7 +357,7 @@ section { padding: 80px 40px; }
   font-size: 14px;
   line-height: 1.8;
   color: rgba(238,227,211,0.7);
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 }
 .tentang-stats {
   display: grid;
@@ -387,154 +387,83 @@ section { padding: 80px 40px; }
   display: block;
 }
 
-/* ── LAYANAN ── */
+/* ── LAYANAN — 3 KARTU GRID ── */
 #layanan { background: var(--beige); }
+
 .layanan-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2px;
   margin-top: 48px;
 }
+
+/* === KARTU LAYANAN === */
+/* Untuk update foto: ganti file di assets/images/ */
+/* Untuk tambah kartu: copy satu blok .layanan-card di index.html */
 .layanan-card {
   background: var(--white);
-  padding: 32px 28px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
   transition: transform 0.3s;
 }
-.layanan-card:hover { transform: translateY(-4px); }
-.layanan-icon {
-  width: 48px;
-  height: 48px;
-  background: var(--maroon);
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.layanan-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(91,26,24,0.12);
 }
-.layanan-icon svg { width: 24px; height: 24px; fill: var(--gold); }
-.layanan-name {
-  font-family: 'Exo 2', sans-serif;
-  font-weight: 700;
-  font-size: 18px;
-  color: var(--maroon);
-}
-.layanan-desc { font-size: 13px; line-height: 1.7; color: var(--muted); }
 
-/* ── PAKET ── */
-#paket { background: var(--cream); }
-.paket-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2px;
-  margin-top: 48px;
-}
-.paket-card {
-  background: var(--white);
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  transition: transform 0.3s;
-}
-.paket-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(91,26,24,0.12); }
-.paket-card.featured { background: var(--maroon); }
-.paket-header { padding: 24px 24px 16px; }
-.paket-tier {
-  font-size: 9px;
-  font-weight: 600;
-  letter-spacing: 0.4em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 6px;
-}
-.paket-name {
-  font-family: 'Exo 2', sans-serif;
-  font-weight: 900;
-  font-size: 32px;
-  color: var(--maroon);
-  line-height: 0.9;
-}
-.paket-card.featured .paket-name { color: var(--white); }
-.paket-watt {
-  font-family: 'Exo 2', sans-serif;
-  font-weight: 700;
-  font-size: 14px;
-  color: var(--gold);
-  letter-spacing: 0.1em;
-  margin-top: 2px;
-}
-.paket-img {
+/* Foto kartu layanan (800x600px) */
+.layanan-img {
   width: 100%;
   aspect-ratio: 4/3;
-  object-fit: contain;
-  background: var(--beige-s);
+  object-fit: cover;
   display: block;
 }
-.paket-card.featured .paket-img { background: rgba(0,0,0,0.15); }
-.paket-body { padding: 16px 24px; flex: 1; }
-.paket-note {
-  font-size: 11px;
-  font-style: italic;
-  color: var(--muted);
-  margin-bottom: 12px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid rgba(0,0,0,0.06);
+
+.layanan-body {
+  padding: 28px 28px 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
-.paket-card.featured .paket-note { color: rgba(238,227,211,0.5); border-color: rgba(200,162,74,0.15); }
-.spec-group { margin-bottom: 12px; }
-.spec-label {
+
+.layanan-name {
+  font-family: 'Exo 2', sans-serif;
+  font-weight: 900;
+  font-size: 22px;
+  color: var(--maroon);
+  margin-bottom: 20px;
+  line-height: 1.1;
+}
+
+.layanan-spec-group {
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(91,26,24,0.06);
+}
+.layanan-spec-group:last-of-type {
+  border-bottom: none;
+  margin-bottom: 20px;
+}
+
+.layanan-spec-label {
+  display: block;
   font-size: 9px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.35em;
   text-transform: uppercase;
   color: var(--gold);
   margin-bottom: 6px;
-  display: block;
 }
-.spec-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
-  font-size: 12px;
-  color: var(--dark);
-  margin-bottom: 4px;
-  line-height: 1.4;
-}
-.paket-card.featured .spec-item { color: var(--beige-s); }
-.spec-dot {
-  width: 4px; height: 4px;
-  border-radius: 50%;
-  background: var(--gold);
-  flex-shrink: 0;
-  margin-top: 5px;
-}
-.paket-includes {
-  font-size: 10px;
+
+.layanan-spec-desc {
+  font-size: 13px;
+  line-height: 1.7;
   color: var(--muted);
-  padding: 10px 12px;
-  background: rgba(200,162,74,0.07);
-  border-left: 2px solid var(--gold);
-  margin-top: 8px;
-  line-height: 1.6;
 }
-.paket-card.featured .paket-includes { background: rgba(200,162,74,0.1); color: rgba(238,227,211,0.5); }
-.badge-popular {
-  position: absolute;
-  top: 12px; right: 12px;
-  background: var(--gold);
-  color: var(--dark);
-  font-size: 8px;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  padding: 3px 8px;
-  border-radius: 100px;
-}
-.paket-cta {
-  margin: 0 24px 24px;
+
+.layanan-cta {
   display: block;
-  padding: 12px;
+  padding: 13px;
   background: var(--maroon);
   color: var(--white);
   text-align: center;
@@ -545,12 +474,11 @@ section { padding: 80px 40px; }
   text-transform: uppercase;
   border-radius: 4px;
   transition: background 0.2s;
+  margin-top: auto;
 }
-.paket-cta:hover { background: var(--maroon-d); }
-.paket-card.featured .paket-cta { background: var(--gold); color: var(--dark); }
-.paket-card.featured .paket-cta:hover { background: var(--gold-l); }
+.layanan-cta:hover { background: var(--maroon-d); }
 
-/* ── CUSTOM PACKAGE SECTION ── */
+/* ── CUSTOM — UP TO 5000 WATT ── */
 #custom {
   background: var(--dark);
   padding: 120px 40px;
@@ -571,9 +499,15 @@ section { padding: 80px 40px; }
   font-size: clamp(48px, 9vw, 96px);
   line-height: 0.9;
   color: var(--white);
+}
+.custom-title-gold {
+  font-family: 'Exo 2', sans-serif;
+  font-weight: 900;
+  font-size: clamp(48px, 9vw, 96px);
+  line-height: 0.9;
+  color: var(--gold);
   margin-bottom: 8px;
 }
-.custom-title span { color: var(--gold); }
 .custom-sub {
   font-family: 'Exo 2', sans-serif;
   font-weight: 900;
@@ -606,7 +540,7 @@ section { padding: 80px 40px; }
 }
 .btn-gold:hover { background: var(--gold-l); transform: translateY(-2px); }
 
-/* ── CTA SECTION ── */
+/* ── CTA ── */
 #cta {
   background: var(--maroon-d);
   text-align: center;
@@ -721,7 +655,7 @@ footer { background: var(--dark); padding: 60px 40px 24px; }
 .wa-float:hover { transform: scale(1.1); }
 .wa-float svg { width: 28px; height: 28px; fill: white; }
 
-/* ── MOBILE ── */
+/* ── MOBILE RESPONSIVE ── */
 @media (max-width: 768px) {
   nav { padding: 0 20px; }
   .nav-links { display: none; }
@@ -742,11 +676,11 @@ footer { background: var(--dark); padding: 60px 40px 24px; }
   .tentang-content { grid-template-columns: 1fr; gap: 40px; padding: 60px 20px; }
   .tentang-bg { background-attachment: scroll; }
   .layanan-grid { grid-template-columns: 1fr; }
-  .paket-grid { grid-template-columns: 1fr; }
   .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
   section { padding: 60px 20px; }
   #cta { padding: 60px 20px; }
   #custom { padding: 80px 20px; }
   .custom-title { font-size: clamp(36px, 10vw, 64px); }
+  .custom-title-gold { font-size: clamp(36px, 10vw, 64px); }
   .custom-sub { font-size: clamp(28px, 8vw, 52px); }
 }
